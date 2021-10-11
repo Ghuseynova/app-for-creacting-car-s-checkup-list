@@ -1,10 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import './App.css';
 
 import { Container, Row } from 'react-bootstrap';
-import Navigation from './components/navigation/navigation';
+import Navigation from './components/navigation';
 
 import ActiveCarsCheckupList from './pages/active-cars-checkup-list';
 import PassedCarsCheckupList from './pages/passed-cars-checkup-list';
@@ -20,23 +25,23 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <Container>
+        <Container className='mt-30'>
           <Row>
-            <h1>Car's Checkup List</h1>
+            <h1 className='mb-30'>Car's Checkup List</h1>
           </Row>
         </Container>
         <Navigation />
 
         <AddingCarModal show={modalShow} />
+
+        <Switch>
+          <Route exact path='/active' component={ActiveCarsCheckupList} />
+
+          <Route path='/passed' component={PassedCarsCheckupList} />
+
+          <Redirect to='/active' />
+        </Switch>
       </div>
-
-      <Switch>
-        <Route exact path='/' component={ActiveCarsCheckupList} />
-
-        <Route path='/active' component={ActiveCarsCheckupList} />
-
-        <Route path='/passed' component={PassedCarsCheckupList} />
-      </Switch>
     </Router>
   );
 }

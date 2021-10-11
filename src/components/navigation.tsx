@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import { setModalShow } from '../../store/actions';
+import { setModalShow } from '../store/actions';
 
 const Navigation = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Navigation = (): JSX.Element => {
             <Nav.Link>Passed</Nav.Link>
           </LinkContainer>
         </Nav>
-        <Button variant='outline-success' onClick={handleBtn}>
+        <Button variant='primary' onClick={handleBtn}>
           Add Car
         </Button>
       </Container>

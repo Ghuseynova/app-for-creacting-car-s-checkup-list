@@ -19,8 +19,8 @@ const PassedCarsCheckupList = (): JSX.Element => {
   }, [dispatch]);
 
   return (
-    <div>
-      <ListGroup>
+    <div className='container mb-30'>
+      <ListGroup className='mt-30'>
         {carsList.map((listItem, i) => {
           if (!listItem.isPassedCheckup) {
             return (
